@@ -1,0 +1,71 @@
+<%= render 'barTop' %>
+
+<p id="notice"><%= notice %></p>
+
+<h1>Not finished Tasks</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Finish date</th>
+      <th>Autor</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @due_task.each do |task| %>
+      <tr>
+        <td><%= task.title %></td>
+        <td><%= task.finish_date %></td>
+        <td><%= task.autor %></td>
+        <td><%= link_to 'Show', task %></td>
+        <td><%= link_to 'Edit', edit_task_path(task) %></td>
+        <td><%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+
+    <% @task.each do |task| %>
+      <tr>
+        <td><strong><%= task.title %></strong></td>
+        <td><%= task.finish_date %></td>
+        <td><%= task.autor %></td>
+        <td><%= link_to 'Show', task %></td>
+        <td><%= link_to 'Edit', edit_task_path(task) %></td>
+        <td><%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<h1>finished Tasks</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Finish date</th>
+      <th>Autor</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @finished_task.each do |task| %>
+      <tr>
+        <td><%= task.title %></td>
+        <td><%= task.finish_date %></td>
+        <td><%= task.autor %></td>
+        <td><%= link_to 'Show', task %></td>
+        <td><%= link_to 'Edit', edit_task_path(task) %></td>
+        <td><%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Task', new_task_path %>
+<%= link_to 'logout', destroy_user_session_path, method: :delete %>
