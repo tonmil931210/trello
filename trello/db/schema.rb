@@ -15,13 +15,13 @@ ActiveRecord::Schema.define(version: 2) do
 
   create_table "tasks", force: :cascade do |t|
     t.string   "title",                       null: false
-    t.string   "description",                 null: false
+    t.text     "description",                 null: false
     t.time     "duration",                    null: false
     t.date     "start_date",                  null: false
     t.date     "finish_date",                 null: false
     t.string   "autor",                       null: false
-    t.boolean  "finish",      default: false
-    t.integer  "user_id"
+    t.boolean  "finish_task", default: false
+    t.integer  "user_id",                     null: false
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
   end

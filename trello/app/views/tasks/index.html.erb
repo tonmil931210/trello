@@ -17,7 +17,7 @@
   <tbody>
     <% @due_task.each do |task| %>
       <tr>
-        <td><%= task.title %></td>
+        <td class="due_task"><%= task.title %></td>
         <td><%= task.finish_date %></td>
         <td><%= task.autor %></td>
         <td><%= link_to 'Show', task %></td>
@@ -28,7 +28,7 @@
 
     <% @task.each do |task| %>
       <tr>
-        <td><strong><%= task.title %></strong></td>
+        <td class="task"><%= task.title %></td>
         <td><%= task.finish_date %></td>
         <td><%= task.autor %></td>
         <td><%= link_to 'Show', task %></td>
@@ -54,7 +54,7 @@
   <tbody>
     <% @finished_task.each do |task| %>
       <tr>
-        <td><%= task.title %></td>
+        <td class="finished"><%= task.title %></td>
         <td><%= task.finish_date %></td>
         <td><%= task.autor %></td>
         <td><%= link_to 'Show', task %></td>
@@ -66,6 +66,6 @@
 </table>
 
 <br>
+<p>gren --> finished, yellow --> not due task, red --> due task</p>
+<strong><%= link_to 'New Task', new_task_path %></strong>
 
-<%= link_to 'New Task', new_task_path %>
-<%= link_to 'logout', destroy_user_session_path, method: :delete %>

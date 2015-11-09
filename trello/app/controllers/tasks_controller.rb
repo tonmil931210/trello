@@ -5,9 +5,9 @@ class TasksController < ApplicationController
   # GET /tasks.json
   def index
     #@tasks = Task.all
-    @due_task = Task.where("finish_date < ? AND finish = ?", Date.today, false).order('finish_date')
-    @task = Task.where("finish_date >= ? AND finish = ?", Date.today, false).order('finish_date')
-    @finished_task = Task.where("finish = ?", true).order('finish_date desc')
+    @due_task = Task.where("finish_date < ? AND finish_task = ?", Date.today, false).order('finish_date')
+    @task = Task.where("finish_date >= ? AND finish_task = ?", Date.today, false).order('finish_date')
+    @finished_task = Task.where("finish_task = ?", true).order('finish_date desc')
 
   end
 
@@ -28,7 +28,7 @@ class TasksController < ApplicationController
   # POST /tasks
   # POST /tasks.json
   def create
-    @task = Task.new(task_params)
+    @task = current_user.tasks.build(task_params)
 
     respond_to do |format|
       if @task.save
@@ -73,6 +73,6 @@ class TasksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def task_params
-      params.require(:task).permit(:title, :description, :duration, :start_date, :finish_date, :autor, :finish, :user_id)
+      params.require(:task).permit(:title, :description, :duration, :start_date, :finish_date, :autor, :finish_task)
     end
 end

@@ -15,3 +15,15 @@
  *= require foundation_and_overrides
 
  */
+
+ .due_task{
+    color: red;
+ }
+
+.task{
+  color: yellow;
+}
+
+.finished{
+  color: green;
+}
