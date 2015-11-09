@@ -3,10 +3,9 @@ class CreateTasks < ActiveRecord::Migration
     create_table :tasks do |t|
       t.string :title,        null: false
       t.text :description,    null: false
-      t.time :duration,       null: false
-      t.date :start_date,     null: false
-      t.date :finish_date,    null: false
-      t.string :autor,        null: false
+      t.integer :duration,       null: false
+      t.datetime :start_date,     null: false
+      t.datetime :finish_date,    null: false
       t.boolean :finish_task, default: false
       t.references :user, index: true, foreign_key: true, null: false
 

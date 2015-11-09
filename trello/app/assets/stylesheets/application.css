@@ -27,3 +27,6 @@
 .finished{
   color: green;
 }
+.top-bar .title-area li{
+  background-color: red;
+}

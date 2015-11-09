@@ -1,5 +1,6 @@
 class TasksController < ApplicationController
   before_action :set_task, only: [:show, :edit, :update, :destroy]
+  skip_before_action :authenticate_user!, only: [:index, :show]
 
   # GET /tasks
   # GET /tasks.json
@@ -8,7 +9,6 @@ class TasksController < ApplicationController
     @due_task = Task.where("finish_date < ? AND finish_task = ?", Date.today, false).order('finish_date')
     @task = Task.where("finish_date >= ? AND finish_task = ?", Date.today, false).order('finish_date')
     @finished_task = Task.where("finish_task = ?", true).order('finish_date desc')
-
   end
 
   # GET /tasks/1
@@ -73,6 +73,6 @@ class TasksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def task_params
-      params.require(:task).permit(:title, :description, :duration, :start_date, :finish_date, :autor, :finish_task)
+      params.require(:task).permit(:title, :description, :start_date, :duration,:finish_date, :finish_task)
     end
 end
