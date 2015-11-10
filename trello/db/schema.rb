@@ -17,8 +17,8 @@ ActiveRecord::Schema.define(version: 2) do
     t.string   "title",                       null: false
     t.text     "description",                 null: false
     t.integer  "duration",                    null: false
-    t.datetime "start_date",                  null: false
-    t.datetime "finish_date",                 null: false
+    t.date     "start_date",                  null: false
+    t.date     "finish_date",                 null: false
     t.boolean  "finish_task", default: false
     t.integer  "user_id",                     null: false
     t.datetime "created_at",                  null: false
